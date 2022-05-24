@@ -26,4 +26,7 @@ class SnacksTests(SimpleTestCase):
     self.assertTemplateUsed(response, 'about.html')
     self.assertTemplateUsed(response, 'base.html')
   
-  
+  def test_not_fount(self):
+    url = 'unknown/'
+    response = self.client.get(url)
+    self.assertEqual(response.status_code, 404)
